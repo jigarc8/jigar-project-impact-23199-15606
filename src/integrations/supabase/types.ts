@@ -14,16 +14,194 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      case_studies: {
+        Row: {
+          challenge_points: Json | null
+          challenge_text: string | null
+          client: string
+          created_at: string | null
+          display_order: number | null
+          featured: boolean | null
+          figma_url: string | null
+          hero_image: string | null
+          id: string
+          live_url: string | null
+          overview_stats: Json | null
+          process_steps: Json | null
+          results: Json | null
+          role_responsibilities: Json | null
+          role_text: string | null
+          slug: string
+          staging_url: string | null
+          subtitle: string
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          challenge_points?: Json | null
+          challenge_text?: string | null
+          client: string
+          created_at?: string | null
+          display_order?: number | null
+          featured?: boolean | null
+          figma_url?: string | null
+          hero_image?: string | null
+          id?: string
+          live_url?: string | null
+          overview_stats?: Json | null
+          process_steps?: Json | null
+          results?: Json | null
+          role_responsibilities?: Json | null
+          role_text?: string | null
+          slug: string
+          staging_url?: string | null
+          subtitle: string
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          challenge_points?: Json | null
+          challenge_text?: string | null
+          client?: string
+          created_at?: string | null
+          display_order?: number | null
+          featured?: boolean | null
+          figma_url?: string | null
+          hero_image?: string | null
+          id?: string
+          live_url?: string | null
+          overview_stats?: Json | null
+          process_steps?: Json | null
+          results?: Json | null
+          role_responsibilities?: Json | null
+          role_text?: string | null
+          slug?: string
+          staging_url?: string | null
+          subtitle?: string
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      profile: {
+        Row: {
+          about_text: string | null
+          created_at: string | null
+          email: string | null
+          full_name: string
+          hero_tagline: string | null
+          id: string
+          linkedin_url: string | null
+          resume_url: string | null
+          skills: Json | null
+          title: string
+          tools: Json | null
+          updated_at: string | null
+        }
+        Insert: {
+          about_text?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name: string
+          hero_tagline?: string | null
+          id?: string
+          linkedin_url?: string | null
+          resume_url?: string | null
+          skills?: Json | null
+          title: string
+          tools?: Json | null
+          updated_at?: string | null
+        }
+        Update: {
+          about_text?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string
+          hero_tagline?: string | null
+          id?: string
+          linkedin_url?: string | null
+          resume_url?: string | null
+          skills?: Json | null
+          title?: string
+          tools?: Json | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
-      [_ in never]: never
+      profile_public: {
+        Row: {
+          about_text: string | null
+          created_at: string | null
+          full_name: string | null
+          hero_tagline: string | null
+          id: string | null
+          linkedin_url: string | null
+          resume_url: string | null
+          skills: Json | null
+          title: string | null
+          tools: Json | null
+          updated_at: string | null
+        }
+        Insert: {
+          about_text?: string | null
+          created_at?: string | null
+          full_name?: string | null
+          hero_tagline?: string | null
+          id?: string | null
+          linkedin_url?: string | null
+          resume_url?: string | null
+          skills?: Json | null
+          title?: string | null
+          tools?: Json | null
+          updated_at?: string | null
+        }
+        Update: {
+          about_text?: string | null
+          created_at?: string | null
+          full_name?: string | null
+          hero_tagline?: string | null
+          id?: string | null
+          linkedin_url?: string | null
+          resume_url?: string | null
+          skills?: Json | null
+          title?: string | null
+          tools?: Json | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
-      [_ in never]: never
+      is_admin: {
+        Args: { user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +328,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
